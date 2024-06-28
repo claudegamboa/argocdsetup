@@ -4,7 +4,7 @@ metadata:
   name: aspnet-core
   namespace: argocd
 spec:
-  project: test
+  project: default
   source:
     chart: aspnet-core
     repoURL: registry-1.docker.io/bitnamicharts  # note: the oci:// syntax is not included.
