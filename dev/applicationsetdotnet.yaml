@@ -9,27 +9,28 @@ spec:
   generators:
   - list:
       elements:
-      - cluster: engineering
-        url: in-cluster
-        env: dev
+      # - cluster: engineering
+      #   url: in-cluster
+      #   env: dev
       # - cluster: engineering-prod
       #   url: https://2.4.6.8
       # - cluster: finance-preprod
       #   url: https://9.8.7.6
+        - appName: aspnet-core
+          chart: aspnet-core
+          targetRevision: 6.2.3
+        
   template:
     metadata:
-      name: '{{.cluster}}-name'
+      name: '{{.appName}}'
     spec:
       project: default
       source:
-        # repoURL: https://github.com/infra-team/cluster-deployments.git
-        # targetRevision: HEAD
-        # path: guestbook/{{.cluster}}
-        chart: aspnet-core
+        chart: '{{.chart}}'
         repoURL: registry-1.docker.io/bitnamicharts  # note: the oci:// syntax is not included.
-        targetRevision: 6.2.3
+        targetRevision: '{{.targetRevision}}'
       destination:
-        name: '{{.url}}'
+        name: "in-cluster"
         namespace: 'aspnet-core'
       
       syncOptions:
