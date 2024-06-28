@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: aspnet-core
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-options: Validate=false
 spec:
   project: default
   source:
