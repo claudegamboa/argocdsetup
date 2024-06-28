@@ -9,7 +9,7 @@ spec:
   - list:
       elements:
       - cluster: engineering
-        url: https://1.2.3.4
+        url: in-cluster
         env: dev
       # - cluster: engineering-prod
       #   url: https://2.4.6.8
