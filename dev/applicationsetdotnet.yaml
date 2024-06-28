@@ -31,3 +31,6 @@ spec:
       destination:
         name: '{{.url}}'
         namespace: 'aspnet-core'
+      
+      syncOptions:
+        - CreateNamespace=true
