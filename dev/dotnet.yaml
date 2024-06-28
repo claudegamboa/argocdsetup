@@ -1,16 +1,16 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: aspnet-core
-  namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-options: Validate=false
-spec:
-  project: default
-  source:
-    chart: aspnet-core
-    repoURL: registry-1.docker.io/bitnamicharts  # note: the oci:// syntax is not included.
-    targetRevision: 6.2.3
-  destination:
-    name: "in-cluster"
-    namespace: aspnet-core
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: aspnet-core
+#   namespace: argocd
+#   annotations:
+#     argocd.argoproj.io/sync-options: Validate=false
+# spec:
+#   project: default
+#   source:
+#     chart: aspnet-core
+#     repoURL: registry-1.docker.io/bitnamicharts  # note: the oci:// syntax is not included.
+#     targetRevision: 6.2.3
+#   destination:
+#     name: "in-cluster"
+#     namespace: aspnet-core

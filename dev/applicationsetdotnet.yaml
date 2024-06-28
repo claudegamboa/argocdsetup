@@ -21,7 +21,7 @@ spec:
         
   template:
     metadata:
-      name: '{{appName}}'
+      name: '{{.appName}}'
     spec:
       project: default
       source:
@@ -35,7 +35,7 @@ spec:
         #   - "../values/{{.appName}}/values.yaml"
       destination:
         name: 'in-cluster'
-        namespace: 'aspnet-core'
+        namespace: '{{.appName}}'
       
       syncOptions:
         - CreateNamespace=true
