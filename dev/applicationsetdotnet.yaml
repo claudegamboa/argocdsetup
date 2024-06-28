@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: default
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - list:
+      elements:
+      - cluster: engineering
+        url: https://1.2.3.4
+        env: dev
+      # - cluster: engineering-prod
+      #   url: https://2.4.6.8
+      # - cluster: finance-preprod
+      #   url: https://9.8.7.6
+  template:
+    metadata:
+      name: '{{.cluster}}-name'
+    spec:
+      project: my-project
+      source:
+        # repoURL: https://github.com/infra-team/cluster-deployments.git
+        # targetRevision: HEAD
+        # path: guestbook/{{.cluster}}
+        chart: aspnet-core
+        repoURL: registry-1.docker.io/bitnamicharts  # note: the oci:// syntax is not included.
+        targetRevision: 6.2.3
+      destination:
+        server: '{{.url}}'
+        namespace: '{{.env}}-default'
