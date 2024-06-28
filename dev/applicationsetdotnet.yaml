@@ -19,7 +19,7 @@ spec:
     metadata:
       name: '{{.cluster}}-name'
     spec:
-      project: my-project
+      project: default
       source:
         # repoURL: https://github.com/infra-team/cluster-deployments.git
         # targetRevision: HEAD
