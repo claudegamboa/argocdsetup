@@ -21,7 +21,7 @@ spec:
         
   template:
     metadata:
-      name: '{{.appName}}'
+      name: '{{appName}}'
     spec:
       project: default
       source:
