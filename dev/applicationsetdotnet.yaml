@@ -7,7 +7,7 @@ spec:
   generators:
   - list:
       elements:
-      - appName: aspnet-core
+      - appName: aspnetcore
         chart: aspnet-core
         targetRevision: 6.2.3
       # - cluster: engineering
@@ -21,7 +21,7 @@ spec:
         
   template:
     metadata:
-      name: '{{appName}}'
+      name: '{{.appName}}'
     spec:
       project: default
       source:
