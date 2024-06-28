@@ -29,5 +29,5 @@ spec:
         repoURL: registry-1.docker.io/bitnamicharts  # note: the oci:// syntax is not included.
         targetRevision: 6.2.3
       destination:
-        server: '{{.url}}'
+        name: '{{.url}}'
         namespace: 'aspnet-core'
