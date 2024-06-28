@@ -13,4 +13,4 @@ spec:
     targetRevision: 6.2.3
   destination:
     name: "in-cluster"
-    namespace: aspnet-core
+    namespace: default

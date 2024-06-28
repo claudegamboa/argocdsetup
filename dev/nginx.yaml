@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: nginx
+  namespace: argocd
   annotations:
     argocd.argoproj.io/sync-options: Validate=false
 spec:
@@ -12,4 +13,4 @@ spec:
     targetRevision: 15.9.0
   destination:
     name: "in-cluster"
-    namespace: nginx
+    namespace: default
