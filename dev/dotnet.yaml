@@ -10,5 +10,5 @@ spec:
     repoURL: registry-1.docker.io/bitnamicharts  # note: the oci:// syntax is not included.
     targetRevision: 6.2.3
   destination:
-    name: "in-cluster"
+    name: "https://kubernetes.default.svc"
     namespace: aspnet-core
