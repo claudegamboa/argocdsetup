@@ -23,6 +23,7 @@ spec:
   template:
     metadata:
       name: '{{.appName}}'
+      argocd.argoproj.io/sync-options: Validate=false
     spec:
       project: default
       source:
