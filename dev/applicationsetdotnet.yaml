@@ -24,7 +24,7 @@ spec:
       name: '{{appName}}'
     spec:
       project: default
-      source:
+      sources:
         - chart: '{{chart}}'
           repoURL: registry-1.docker.io/bitnamicharts  # note: the oci:// syntax is not included.
           targetRevision: '{{targetRevision}}'
