@@ -18,7 +18,6 @@ spec:
       # - cluster: finance-preprod
       #   url: https://9.8.7.6
       
-        
   template:
     metadata:
       name: '{{appName}}'
@@ -35,7 +34,7 @@ spec:
         #   - "../values/{{.appName}}/values.yaml"
       destination:
         name: 'in-cluster'
-        namespace: '{{appName}}'
+        namespace: blueocean
       
       syncOptions:
         - CreateNamespace=true
