@@ -1,0 +1,36 @@
+image:
+  registry: crpitlappcommon.azurecr.io
+  repository: spark/spark-custom
+  digest: "sha256:47f88d4e9d4fcc559d2a4c6411ff259a0f3d96c08eb0173ba24fccd952b8f074"
+  pullSecrets: [acr-secret]
+
+worker: 
+  autoscaling:
+    enabled: true
+    minReplicas: 3
+    maxReplicas: 10
+    targetCPU: 50
+    targetMemory: ""
+
+ingress:  
+  enabled: true
+  ingressClassName: "nginx"
+  annotations: 
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  hostname: spark.blueocean-onprem.co.uk 
+  path: /(|$)(.*)
+  pathType: Prefix
+  selfSigned: true
+
+metrics:
+  enabled: true
+
+worker:
+  extraEnvVars: |-
+    - name: SPARK_WORKER_INSTANCES
+      value: {{ .Values.custom.sparkWorkerInstances | quote }}
+
+custom:
+  sparkWorkerInstances: 2
