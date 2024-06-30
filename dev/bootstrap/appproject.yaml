@@ -4,5 +4,11 @@ metadata:
   name: project-one
   namespace: argocd
 spec:
-  sourceNamespaces:
-  - namespace-one
+  sourceRepos:
+  - '*'
+  destinations:
+  - namespace: '*'
+    server: '*'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
