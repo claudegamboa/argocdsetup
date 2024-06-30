@@ -17,7 +17,8 @@ spec:
         environment: dev
       - appName: spark
         chart: nginx
-        targetRevsion: 15.9.0
+        targetRevision: 15.9.0
+        environment: dev
   template:
     metadata:
       name: '{{appName}}'
